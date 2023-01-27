@@ -61,22 +61,14 @@ public class App
             LOGGER.info("1.Edit new Card 2.Edit old Card 3.Check old vs new 4.Exit");
             int m = sc.nextInt();
             if(m == 1){
-                LOGGER.info("Enter Name: ");
-                c1.holdername = sc.next();
                 LOGGER.info("Enter card number: ");
                 c1.number  = sc.nextInt();
-                LOGGER.info("Enter Expiration: ");
-                c1.date = sc.next();
                 s = "Updated Credit Card Details :\nHoldername: "+c1.holdername+"\nCard number : "+c1.number+"\nExpiration Date: "+c1.date;
                 LOGGER.info(s);
             }
             else if(m == 2){
-                LOGGER.info("Enter Name: ");
-                c.holdername = sc.next();
                 LOGGER.info("Enter card number: ");
                 c.number  = sc.nextInt();
-                LOGGER.info("Enter Expiration: ");
-                c.date = sc.next();
                 s = "Updated Credit Card Details :\nHoldername: "+c.holdername+"\nCard number : "+c.number+"\nExpiration Date: "+c.date;
                 LOGGER.info(s);
             }
