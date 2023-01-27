@@ -17,12 +17,12 @@ import java.util.logging.*;
     - A constructor that allows the user to create a credit card with a given name, card number, and expiration date.
     - An equals method that returns true if the given object is a credit card with the same card number, and false otherwise.
     - A clone method that creates and returns a new credit card with the same name, card number, and expiration date as the original credit card."*/
-class credit implements Cloneable{
+class CREDIT implements Cloneable{
     private static final Logger LOGGER =  Logger.getLogger("InfoLogging");
     String holdername;
     int number;
     String date;
-    credit(String holdername, int number, String date){
+    CREDIT(String holdername, int number, String date){
         this.holdername = holdername;
         this.number = number;
         this.date = date;
@@ -52,8 +52,8 @@ public class App
         int number  = sc.nextInt();
         LOGGER.info("Enter Expiration: ");
         String date = sc.next();
-        credit c = new credit(holdername, number, date);
-        credit c1 = (credit)c.clone();
+        CREDIT c = new CREDIT(holdername, number, date);
+        CREDIT c1 = (CREDIT)c.clone();
         String s = "New Credit Card Details :\nHoldername: "+c1.holdername+"\nCard number : "+c1.number+"\nExpiration Date: "+c1.date;
         int n = 1;
         LOGGER.info(s);
