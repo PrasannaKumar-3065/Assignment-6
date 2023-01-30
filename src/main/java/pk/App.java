@@ -43,25 +43,30 @@ public class App
         int n = 1;
         LOGGER.info(s);
         do{
-            LOGGER.info("1.Edit new Card 2.Edit old Card 3.Check old vs new 4.Exit");
-            int m = sc.nextInt();
-            if(m == 1){
-                LOGGER.info(card);
-                c1.number  = sc.nextInt();
-                s = "Updated Credit Card Details :\nHoldername: "+c1.holdername+"\nCard number : "+c1.number+"\nExpiration Date: "+c1.date;
+            try{
+                LOGGER.info("1.Edit new Card 2.Edit old Card 3.Check old vs new 4.Exit");
+                int m = sc.nextInt();
+                if(m == 1){
+                    LOGGER.info(card);
+                    c1.number  = sc.nextInt();
+                    s = "Updated Credit Card Details :\nHoldername: "+c1.holdername+"\nCard number : "+c1.number+"\nExpiration Date: "+c1.date;
+                    LOGGER.info(s);
+                }
+                else if(m == 2){
+                    LOGGER.info(card);
+                    c.number  = sc.nextInt();
+                    s = "Updated Credit Card Details :\nHoldername: "+c.holdername+"\nCard number : "+c.number+"\nExpiration Date: "+c.date;
+                    LOGGER.info(s);
+                }
+                else if(m == 3){
+                    c.check(c1.number);
+                }
+                else{
+                    n=0;
+                }
+            }catch(Exception e){
+                s = ""+e;
                 LOGGER.info(s);
-            }
-            else if(m == 2){
-                LOGGER.info(card);
-                c.number  = sc.nextInt();
-                s = "Updated Credit Card Details :\nHoldername: "+c.holdername+"\nCard number : "+c.number+"\nExpiration Date: "+c.date;
-                LOGGER.info(s);
-            }
-            else if(m == 3){
-                c.check(c1.number);
-            }
-            else{
-                n=0;
             }
         }while(n == 1);
 
