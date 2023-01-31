@@ -43,7 +43,6 @@ public class App
         int n = 1;
         LOGGER.info(s);
         do{
-            try{
                 LOGGER.info("1.Edit new Card 2.Edit old Card 3.Check old vs new 4.Exit");
                 int m = sc.nextInt();
                 if(m == 1){
@@ -64,10 +63,6 @@ public class App
                 else{
                     n=0;
                 }
-            }catch(Exception e){
-                s = ""+e;
-                LOGGER.info(s);
-            }
         }while(n == 1);
 
     }
