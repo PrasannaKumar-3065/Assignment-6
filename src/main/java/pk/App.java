@@ -1,7 +1,7 @@
 package pk;
 import java.util.*;
 import java.util.logging.*;
-class CREDIT implements Cloneable{
+class CREDIT{
     private static final Logger LOGGER =  Logger.getLogger("InfoLogging");
     String holdername;
     int number;
@@ -11,6 +11,13 @@ class CREDIT implements Cloneable{
         this.number = number;
         this.date = date;
     }
+    CREDIT(CREDIT obj)
+    {
+        holdername=obj.holdername;
+        number=obj.number;
+        date=obj.date;
+
+    }
     void check(int number){
         if(number == this.number){
             LOGGER.info("Same card number");
@@ -18,9 +25,6 @@ class CREDIT implements Cloneable{
         else{
             LOGGER.info("Different card number");
         }
-    }
-    protected Object clone() throws CloneNotSupportedException{
-        return super.clone();
     }
 }
 
@@ -38,11 +42,12 @@ public class App
         LOGGER.info("Enter Expiration: ");
         String date = sc.next();
         CREDIT c = new CREDIT(holdername, number, date);
-        CREDIT c1 = (CREDIT)c.clone();
+        CREDIT c1 = new CREDIT(c);
         String s = "New Credit Card Details :\nHoldername: "+c1.holdername+"\nCard number : "+c1.number+"\nExpiration Date: "+c1.date;
         int n = 1;
         LOGGER.info(s);
         do{
+            try{
                 LOGGER.info("1.Edit new Card 2.Edit old Card 3.Check old vs new 4.Exit");
                 int m = sc.nextInt();
                 if(m == 1){
@@ -63,6 +68,10 @@ public class App
                 else{
                     n=0;
                 }
+            }catch(Exception e){
+                s = ""+e;
+                LOGGER.info(s);
+            }
         }while(n == 1);
 
     }
